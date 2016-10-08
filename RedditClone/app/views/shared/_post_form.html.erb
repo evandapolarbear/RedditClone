@@ -1,0 +1,29 @@
+<form  action= <%= url %> method="post">
+  <% if patch %>
+  <input type="hidden" name="_method" value= "patch">
+  <% end %>
+
+  <%= auth_token %>
+  <input type="hidden" name="post[sub_ids][]" value=''>
+  <input type="hidden" name="post[author_id]" value= "<%=current_user.id %>"
+
+  <% @subs.each do |sub| %>
+    <label for="check"><%= sub.title %></label>
+    <input type="checkbox" id="check"
+    name="post[sub_ids][]"
+    value= "<%= sub.id %>"
+    "<% unless sub.nil? %><% if post.subs.any?{|s| s.title = sub.title} %>checked <% end %> <% end %>">
+
+  <% end %>
+
+  <label for="title">Title</label>
+  <input id="Title" type="text" name="post[title]">
+
+  <label for="url">Url</label>
+  <input id="url" type="text" name="post[url]">
+
+
+  <label for="content">Content</labelsub.
+  <textarea id="content" name="post[content]"> </textarea>
+  <button>Submit</button>
+</form>

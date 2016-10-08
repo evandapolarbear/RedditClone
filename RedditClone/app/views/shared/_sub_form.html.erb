@@ -1,0 +1,15 @@
+<form action= <%= url %> method="post">
+  <% if patch %>
+    <input type="hidden" name="_method" value= "patch">
+  <% end %>
+
+  <%= auth_token %>
+
+  <input type="hidden" name="sub[moderator_id]" value= "<%=current_user.id %>">
+  <label for="title"> Title </label>
+  <input id="Title" type="text" name="sub[title]">
+
+  <label for="description">Description</label>
+  <textarea id="description" name="sub[description]"></textarea>
+  <button>Submit</button>
+</form>

@@ -1,0 +1,18 @@
+<h1><%= @sub.title %> SubRails </h1>
+
+<p>
+  <%= @sub.description %>
+</p>
+
+<p>
+  <%= @sub.moderator.email %>
+</p>
+
+<% @sub.posts.each do |post| %>
+  <%= link_to post.title, post_url(post) %>
+  <br>
+<% end %>
+
+<%if current_user.id == @sub.moderator.id %>
+  <%= button_to "Edit", edit_sub_url(params[:id]), method: :get %>
+  <% end %>

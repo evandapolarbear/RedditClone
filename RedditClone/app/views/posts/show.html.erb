@@ -1,0 +1,10 @@
+<%= @post.title %>
+<br>
+
+<%= @post.url %>
+<br>
+<%= @post.content %>
+<br>
+<p> by: <%= @post.author.email %> </p>
+
+<%= button_to "Edit", edit_post_url(@post), method: :get %>
